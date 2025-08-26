@@ -1,7 +1,16 @@
+# module configuration, executed in order
+# you can include multiple instances of the same module
 modules:
-  - type: signing
+  # - type: files
+  #   files:
+  #     - source: system
+  #       destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+
   - type: rpm-ostree
     install:
       - tailscale
-      - tmux
       - incus
+      - tmux
+
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+
