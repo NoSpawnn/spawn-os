@@ -1,0 +1,25 @@
+variant: fcos
+version: 1.6.0
+
+passwd:
+  users:
+    - name: red
+      ssh_authorized_keys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCZLZAXvv/n2KXlwrClawqDnNIKZgddI8p7ZAtrhqUuc0cpzDjOQODTM24ATwnFH01MC8LDtM3nUDfsWZ5aLhgu/M0o4B5lGt/LKlJPAMqNSNTbGk0XmNf+CfLTT0fnJmrC9I/hyr4z/n7YBhF5XLPS4479GYmAyMxofi5ixEFL9ZQNFi+ZJbESlUIruhRKYdczvqI4nkHf6wmWLQ9PJ81fG4wOU2a9oErFk4z0jV2D3QvnScB0VSOZLQjnNx2w63xHPuSJHa43x1i/37nQxMu7JAQVI8f/g7emTbz+/n9X1hlZq9/6R2VuxTSzTQxfzmNjX8lqW2XGjoHHfQXObveTuOOAhsXlz1S8JASL9xWV9STtAPrb2o75fs0QAlj7lHFk7by5t44tyAear8uEjM4mOyBO/OFjkfBEyvV7vhJuy1d8RlAGIl02rpSu9qcbjd6zH2fYKa2wluPGIgKo7C1j/eorDYUDCqLj24cO3HOhSY9aToKIr/4a9Z8CPpCXtdE= red@spawnpoint
+      shell: /bin/bash
+      groups:
+        - wheel
+
+systemd:
+  units:
+    - name: incus.service
+      enabled: true
+    - name: incus-init.service
+      enabled: true
+      contents_local: configs/incus/init.service
+
+storage:
+  files:
+    - path: /etc/incus/incus-conf.yml
+      contents:
+        local: configs/incus/config.yml

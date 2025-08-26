@@ -1,9 +1,10 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+
 # image will be published to ghcr.io/<user>/<name>
 name: spawn-os
 # description will be included in the image's metadata
-description: "Just another custom Fedora CoreOS/UniversalBlue image."
+description: "Just another custom Fedora CoreOS image."
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: quay.io/fedora/fedora-coreos
@@ -11,10 +12,14 @@ image-version: stable # latest is also supported if you want new updates ASAP
 
 modules:
   - from-file: base.yml
-  - from-file: cockpit.yml
+  - from-file: server.yml
+  # - from-file: cockpit.yml
+
   - type: os-release
     properties:
       ID: spawn-os
       ID_LIKE: fedora
       NAME: SpawnOS
       PRETTY_NAME: SpawnOS
+
+  - type: signing

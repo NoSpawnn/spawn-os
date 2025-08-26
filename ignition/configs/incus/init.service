@@ -1,0 +1,13 @@
+[Unit]
+Description=Initialize Incus using config file
+After=network-online.target incus.service
+Wants=network-online.target
+Requires=incus.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/incus admin init --config /etc/incus/incus.yaml --auto
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
