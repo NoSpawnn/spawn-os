@@ -1,0 +1,7 @@
+modules:
+  - type: signing
+  - type: rpm-ostree
+    install:
+      - tailscale
+      - tmux
+      - incus

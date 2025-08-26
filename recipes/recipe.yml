@@ -1,0 +1,7 @@
+name: spawn-os
+description: "Just another custom Fedora CoreOS/UniversalBlue image."
+base-image: quay.io/fedora/fedora-coreos
+image-version: stable
+
+modules:
+  - from-file: base.yml
