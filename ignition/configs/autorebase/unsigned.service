@@ -1,0 +1,15 @@
+[Unit]
+Description=CoreOS autorebase to signed OCI and reboot
+ConditionPathExists=/etc/coreos-autorebase/unverified
+ConditionPathExists=!/etc/coreos-autorebase/signed
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=oneshot
+StandardOutput=journal+console
+ExecStart=/usr/bin/rpm-ostree rebase --bypass-driver ostree-image-signed:docker://ghcr.io/nospawnn/spawn-os:latest
+ExecStart=/usr/bin/touch /etc/coreos-autorebase/signed
+ExecStart=/usr/bin/systemctl disable coreos-signed-autorebase.service
+ExecStart=/usr/bin/systemctl reboot
+[Install]
+WantedBy=multi-user.target

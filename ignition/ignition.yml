@@ -12,6 +12,16 @@ passwd:
 
 systemd:
   units:
+    # Stolen from https://github.com/ublue-os/ucore/blob/main/examples/ucore-autorebase.butane#L15
+    - name: coreos-unsigned-autorebase.service
+      enabled: true
+      contents_local: configs/autorebase/unsigned.service
+    # Stolen from https://github.com/ublue-os/ucore/blob/main/examples/ucore-autorebase.butane#L33
+    - name: coreos-signed-autorebase.service
+      enabled: true
+      contents_local: configs/autorebase/unsigned.service
+
+    # Incus related stuff
     - name: incus.service
       enabled: true
     - name: incus-init.service

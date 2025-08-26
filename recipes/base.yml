@@ -1,3 +1,6 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
+
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
@@ -10,4 +13,3 @@ modules:
     install:
       - tailscale
       - tmux
-      - openssh-server
