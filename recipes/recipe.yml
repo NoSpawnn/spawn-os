@@ -11,6 +11,7 @@ image-version: stable # latest is also supported if you want new updates ASAP
 
 modules:
   - from-file: base.yml
+  - from-file: cockpit.yml
   - type: os-release
     properties:
       ID: spawn-os
