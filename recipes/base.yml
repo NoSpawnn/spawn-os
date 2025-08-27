@@ -13,3 +13,4 @@ modules:
     install:
       - tailscale
       - tmux
+      - tldr
