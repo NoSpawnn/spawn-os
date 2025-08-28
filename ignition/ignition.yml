@@ -30,7 +30,7 @@ systemd:
         [Service]
         Type=oneshot
         StandardOutput=journal+console
-        ExecStart=/usr/bin/rpm-ostree rebase --bypass-driver ostree-unverified-registry:ghcr.io/nospawnn/nsos:stable
+        ExecStart=/usr/bin/rpm-ostree rebase --bypass-driver ostree-unverified-registry:ghcr.io/nospawnn/nsos:latest
         ExecStart=/usr/bin/touch /etc/nsos-autorebase/unverified
         ExecStart=/usr/bin/systemctl disable nsos-unsigned-autorebase.service
         ExecStart=/usr/bin/systemctl reboot
@@ -48,7 +48,7 @@ systemd:
         [Service]
         Type=oneshot
         StandardOutput=journal+console
-        ExecStart=/usr/bin/rpm-ostree rebase --bypass-driver ostree-image-signed:docker://ghcr.io/nospawnn/nsos:stable
+        ExecStart=/usr/bin/rpm-ostree rebase --bypass-driver ostree-image-signed:docker://ghcr.io/nospawnn/nsos:latest
         ExecStart=/usr/bin/touch /etc/nsos-autorebase/signed
         ExecStart=/usr/bin/systemctl disable nsos-signed-autorebase.service
         ExecStart=/usr/bin/systemctl reboot
