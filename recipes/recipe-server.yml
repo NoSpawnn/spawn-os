@@ -7,7 +7,7 @@ name: nsos-server
 description: "NSOS Custom Server Image"
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: quay.io/fedora-ostree-desktops/silverblue
+base-image: quay.io/fedora/fedora-coreos
 image-version: stable
 
 modules:
