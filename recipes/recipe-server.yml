@@ -1,0 +1,27 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+
+# image will be published to ghcr.io/<user>/<name>
+name: nsos-server
+# description will be included in the image's metadata
+description: "NSOS Custom Server Image"
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: quay.io/fedora-ostree-desktops/silverblue
+image-version: stable
+
+modules:
+  - from-file: base.yml
+
+  - type: rpm-ostree
+    install:
+      - incus
+
+  - type: os-release
+    properties:
+      ID: nsos-server
+      ID_LIKE: fedora
+      NAME: NS-OS
+      PRETTY_NAME: NS-OS Server
+
+  - type: signing
