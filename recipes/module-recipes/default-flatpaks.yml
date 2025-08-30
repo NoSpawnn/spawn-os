@@ -7,27 +7,41 @@ modules:
           name: flathub
           url: https://dl.flathub.org/repo/flathub.flatpakrepo
         install:
-          - org.gnome.Calculator
-          - org.gnome.Calendar
-          - org.gnome.Characters
-          - org.gnome.Connections
-          - org.gnome.Contacts
-          - org.gnome.DejaDup
-          - org.gnome.FileRoller
-          - org.gnome.Firmware
-          - org.gnome.Logs
-          - org.gnome.Loupe
-          - org.gnome.Maps
-          - org.gnome.NautilusPreviewer
-          - org.gnome.Papers
-          - org.gnome.SimpleScan
-          - org.gnome.TextEditor
-          - org.gnome.baobab
-          - org.gnome.clocks
-          - org.gnome.font-viewer
+          # GNOME
+          # - org.gnome.Calculator
+          # - org.gnome.Calendar
+          # - org.gnome.Characters
+          # - org.gnome.Connections
+          # - org.gnome.Contacts
+          # - org.gnome.DejaDup
+          # - org.gnome.FileRoller
+          # - org.gnome.Firmware
+          # - org.gnome.Logs
+          # - org.gnome.Loupe
+          # - org.gnome.Maps
+          # - org.gnome.NautilusPreviewer
+          # - org.gnome.Papers
+          # - org.gnome.SimpleScan
+          # - org.gnome.TextEditor
+          # - org.gnome.baobab
+          # - org.gnome.clocks
+          # - org.gnome.font-viewer
+          # - io.github.flattool.Ignition
+
+          # KDE
+          - org.kde.kcalc
+          - org.kde.gwenview
+          - org.kde.kontact
+          - org.kde.okular
+          - org.kde.kweather
+          - org.kde.kclock
+          - org.kde.haruna
+          - org.gtk.Gtk3theme.Breeze
+
           - com.github.tchx84.Flatseal
           - io.github.flattool.Warehouse
-          - io.github.flattool.Ignition
+          - com.borgbase.Vorta
+          - it.mijorus.gearlever
 
       - scope: user
         repo:
@@ -43,9 +57,13 @@ modules:
           - io.missioncenter.MissionCenter
           - org.onlyoffice.desktopeditors
           - md.obsidian.Obsidian
+          - com.rtosta.zapzap
+          - org.kde.kdenlive
+          - io.github.pwr_solaar.solaar
+          - org.fkoehler.KTailctl
 
           # Dev stuff
-          # "Inspired" by https://github.com/ublue-os/bluefin/blob/main/flatpaks/system-flatpaks-dx.list
+          # "Inspired" by https://github.com/ublue-os/aurora/blob/main/flatpaks/system-flatpaks.list
           - dev.zed.Zed
           - io.podman_desktop.PodmanDesktop
           - io.github.getnf.embellish
@@ -55,7 +73,7 @@ modules:
 
           # Gaming stuff
           - com.valvesoftware.Steam
+          - net.lutris.Lutris
           - io.github.Foldex.AdwSteamGtk
           - dev.vencord.Vesktop
           - net.davidotek.pupgui2
-          - net.lutris.Lutris

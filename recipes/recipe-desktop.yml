@@ -7,13 +7,28 @@ name: nsos-desktop
 description: "NSOS Custom Desktop Image (GNOME)"
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: quay.io/fedora-ostree-desktops/silverblue
+base-image: quay.io/fedora-ostree-desktops/kinoite
 image-version: 42
 
 modules:
   - from-file: base.yml
   - from-file: module-recipes/default-flatpaks.yml
-  - from-file: module-recipes/gnome-extensions.yml
+  # - from-file: module-recipes/gnome-extensions.yml
+
+  - type: dnf
+    install:
+      packages:
+        - solaar-udev
+        - lm_sensors
+    remove:
+      packages:
+        - firefox
+
+  - type: script
+    scripts:
+      - fancontrol-udev.sh
+      - ublue.sh
+      - initramfs-zstd.sh
 
   - type: os-release
     properties:
