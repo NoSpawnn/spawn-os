@@ -61,6 +61,7 @@ modules:
           - org.kde.kdenlive
           - io.github.pwr_solaar.solaar
           - org.fkoehler.KTailctl
+          - com.bitwarden.desktop
 
           # Dev stuff
           # "Inspired" by https://github.com/ublue-os/aurora/blob/main/flatpaks/system-flatpaks.list
@@ -76,4 +77,6 @@ modules:
           - net.lutris.Lutris
           - io.github.Foldex.AdwSteamGtk
           - dev.vencord.Vesktop
+          - chat.revolt.RevoltDesktop
           - net.davidotek.pupgui2
+          - com.obsproject.Studio

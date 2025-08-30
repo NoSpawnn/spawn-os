@@ -13,3 +13,14 @@ modules:
         - tmux
         - tldr
         - fzf
+        - zoxide
+  
+  - type: script
+    scripts:
+      - install/eza.sh
+
+  - type: systemd
+    system:
+      enabled:
+      - sshd
+      - tailscaled

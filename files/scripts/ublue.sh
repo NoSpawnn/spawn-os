@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 echo "Downloading ublue packages config"
 curl -fLs --create-dirs https://github.com/ublue-os/packages/archive/refs/heads/main.zip -o /tmp/ublue-config/packages.zip
 unzip -q /tmp/ublue-config/packages.zip -d /tmp/ublue-config/

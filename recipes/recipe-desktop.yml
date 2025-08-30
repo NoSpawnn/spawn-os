@@ -24,9 +24,34 @@ modules:
       packages:
         - firefox
 
+  # Covering ublue-os/main here
+  # Add negativo repo and replace some packages like HEIF & mesa
+  - type: dnf
+    repos:
+      nonfree: negativo17
+    # Replace Fedora packages with Negativos (Mesa & HEIF)  
+    install:
+      packages:
+        - libopenjph # Manually install dependency for `libheif`, as Negativo upstreamed it
+        - repo: fedora-multimedia
+          packages:
+            - libheif
+    replace:
+      - from-repo: fedora-multimedia
+        packages:
+          - libva
+          - mesa-dri-drivers
+          - mesa-filesystem
+          - mesa-libEGL
+          - mesa-libGL
+          - mesa-libgbm
+          - mesa-va-drivers
+          - mesa-vulkan-drivers
+
   - type: script
     scripts:
-      - fancontrol-udev.sh
+      - udev/android.sh
+      - udev/fancontrol.sh
       - ublue.sh
       - initramfs-zstd.sh
 
