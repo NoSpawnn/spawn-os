@@ -4,6 +4,8 @@ set -euo pipefail
 
 echo "Enabling udev rules for fan-control"
 
+mkdir /tmp/fanctrl-udev
+cd /tmp/fanctrl-udev
 wget https://raw.githubusercontent.com/wiiznokes/fan-control/master/res/linux/60-fan-control.rules
-sudo mv 60-fan-control.rules /etc/udev/rules.d/
-sudo udevadm control --reload-rules && sudo udevadm trigger
+mv 60-fan-control.rules /etc/udev/rules.d/
+udevadm control --reload-rules && udevadm trigger
